@@ -1,0 +1,83 @@
+Modèle de relation d'entité :
+
+Entité : Gymnase
+Attributs :
+Identifiant unique (ID_Gymnase) [Clé primaire]
+Nom (Nom_Gymnase)
+Adresse (Adresse_Gymnase)
+Numéro de téléphone (Telephone_Gymnase)
+
+Entité : Membre
+Attributs :
+Identifiant unique (ID_Membre) [Clé primaire]
+Nom (Nom_Membre)
+Prénom (Prenom_Membre)
+Adresse (Adresse_Membre)
+Date de naissance (Date_Naissance_Membre)
+Sexe (Sexe_Membre)
+
+Entité : Séance
+Attributs :
+Identifiant unique (ID_Seance) [Clé primaire]
+Type de sport (Type_Sport)
+Horaire (Horaire)
+Capacité maximale d'adhérents (Capacite_Max)
+
+Entité : Coach
+Attributs :
+Identifiant unique (ID_Coach) [Clé primaire]
+Nom (Nom_Coach)
+Prénom (Prenom_Coach)
+Âge (Age_Coach)
+Spécialité (Specialite_Coach)
+
+Relation : Inscription
+Attributs :
+Identifiant unique de l'inscription (ID_Inscription) [Clé primaire]
+Identifiant unique du membre (ID_Membre) [Clé étrangère référençant Membre]
+Identifiant unique du gymnase (ID_Gymnase) [Clé étrangère référençant Gymnase]
+Identifiant unique de la séance (ID_Seance) [Clé étrangère référençant Séance]
+
+Relation : Animer
+Attributs :
+Identifiant unique de l'animation (ID_Animation) [Clé primaire]
+Identifiant unique de la séance (ID_Seance) [Clé étrangère référençant Séance]
+Identifiant unique du coach (ID_Coach) [Clé étrangère référençant Coach]
+
+
+Explication :
+
+Gymnase est une entité qui représente chaque gymnase de la chaîne. Chaque gymnase 
+a un identifiant unique (ID_Gymnase), un nom, une adresse et un numéro de téléphone.
+
+Membre est une entité qui représente chaque membre inscrit à l'un des gymnases.
+Chaque membre a un identifiant unique (ID_Membre), un nom, un prénom, une adresse,
+une date de naissance et un sexe.
+
+Séance est une entité qui représente chaque session organisée dans les gymnases. 
+Chaque séance a un identifiant unique (ID_Seance), un type de sport, un horaire 
+et une capacité maximale d'adhérents.
+
+Coach est une entité qui représente les entraîneurs qui animent les séances. 
+Chaque coach a un identifiant unique (ID_Coach), un nom, un prénom, un âge 
+et une spécialité.
+
+Inscription est une relation qui lie les membres aux gymnases et aux séances
+auxquels ils sont inscrits. Chaque enregistrement de cette relation a 
+un identifiant unique de l'inscription (ID_Inscription), et contient 
+les identifiants uniques du membre (ID_Membre), du gymnase (ID_Gymnase) 
+et de la séance (ID_Seance) correspondants. Ces identifiants servent de clés 
+étrangères qui référencent les entités Membre, Gymnase et Séance respectivement.
+
+Animer est une relation qui lie les séances aux coaches qui les animent. 
+Chaque enregistrement de cette relation a un identifiant unique de l'animation 
+(ID_Animation), et contient les identifiants uniques de la séance (ID_Seance) 
+et du coach (ID_Coach) correspondants. Ces identifiants servent de clés étrangères 
+qui référencent les entités Séance et Coach respectivement.
+
+Ce modèle de relation d'entité permet de gérer les informations des gymnases, 
+des membres, des séances, des coaches et les inscriptions associées. 
+Chaque membre peut être inscrit à un ou plusieurs gymnases, et participer à 
+une ou plusieurs séances. Chaque séance est caractérisée par son type de sport, 
+son horaire et la liste des membres inscrits. Chaque séance est également animée 
+par un ou deux coaches ayant des attributs spécifiques.
